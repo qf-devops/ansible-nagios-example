@@ -40,6 +40,12 @@
   with_items:
     - perl-IPC-Run
     - perl-IO-Tty
+- name: create conf.d directory
+  file:
+     path: /etc/nagios/conf.d
+    state: directory
+    mode: 0755
+  become: true    
 
 - name: Setup nagios SSL HTTPD vhost
   copy: src=nagios.conf dest=/etc/httpd/conf.d/
