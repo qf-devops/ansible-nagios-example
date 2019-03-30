@@ -42,7 +42,7 @@
     - perl-IO-Tty
 - name: create conf.d directory
   file:
-     path: /etc/nagios/conf.d
+    path: /etc/nagios/conf.d
     state: directory
     mode: 0755
   become: true    
