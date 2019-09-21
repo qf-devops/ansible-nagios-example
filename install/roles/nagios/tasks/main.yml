@@ -191,21 +191,21 @@
 # todo: file bug
 - name: Create nagios results directory
   file:
-    path=/var/log/nagios/spool/checkresults
-    state=directory
-    owner=nagios
-    group=nagios
-    mode=0755
-    seuser=system_u
+    path: /var/log/nagios/spool/checkresults
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: 0755
+    seuser: system_u
   become: true
   
 - name: Create nagios results directory
   file:
-    path=/var/log/nagios/nagios.log
-    state=file
-    owner=nagios
-    group=nagios
-    mode=0755
+    path: /var/log/nagios/nagios.log
+    state: file
+    owner: nagios
+    group: nagios
+    mode: 0755
   become: true  
 
 # employ lineinfile fix for faulty, shipped nagios systemd service
