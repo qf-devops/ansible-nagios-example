@@ -198,14 +198,14 @@
     mode=0755
     seuser=system_u
   become: true
-  
-- name: Create nagios results directory
+- name: Create nagios log files
   file:
     path=/var/log/nagios/nagios.log
-    state=file
+    state=directory
     owner=nagios
     group=nagios
-    mode=0755
+    mode=0777
+    seuser=system_u
   become: true  
 
 # employ lineinfile fix for faulty, shipped nagios systemd service
