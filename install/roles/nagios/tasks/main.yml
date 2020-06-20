@@ -201,7 +201,7 @@
 - name: Create nagios log files
   file:
     path=/var/log/nagios/nagios.log
-    state=directory
+    state=file
     owner=nagios
     group=nagios
     mode=0777
