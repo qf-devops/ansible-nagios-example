@@ -198,6 +198,14 @@
     mode=0755
     seuser=system_u
   become: true
+- name: create a nagios file
+  copy:
+    src: nagios.log
+    dest: /var/log/nagios/nagios.log
+    owner: nagios
+    group: nagios
+    mode: 0777
+    seuser: system_u 
 - name: Create nagios log files
   file:
     path=/var/log/nagios/nagios.log
