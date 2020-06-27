@@ -5,10 +5,10 @@
 # author: Will Foster (@sadsfae)
 # https://hobo.house/2016/06/24/automate-nagios-deployment-with-ansible/
 
-- name: Check Operating System
-  fail:
-    msg="You're not running a supported operating system (CentOS or RHEL 7+)"
-  when: ((ansible_os_family != "RedHat") or (ansible_distribution_major_version|int < 7))
+#- name: Check Operating System
+ # fail:
+  #  msg="You're not running a supported operating system (CentOS or RHEL 7+)"
+  #when: ((ansible_os_family != "RedHat") or (ansible_distribution_major_version|int < 7))
 
 - name: Import EPEL GPG Key
   rpm_key: key=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
@@ -198,16 +198,14 @@
     mode: 0755
     seuser: system_u
   become: true
-  
-- name: Create nagios results directory
-  file:
-    path: /var/log/nagios/nagios.log
-    state: file
+- name: create a nagios file
+  copy:
+    src: nagios.log
+    dest: /var/log/nagios/nagios.log
     owner: nagios
     group: nagios
-    mode: 0755
-  become: true  
-
+    mode: 0777
+    seuser: system_u 
 # employ lineinfile fix for faulty, shipped nagios systemd service
 - name: Check/fix systemd service file
   lineinfile: dest=/usr/lib/systemd/system/nagios.service \

@@ -1,10 +1,10 @@
 ---
 # install and setup NRPE and checks
 
-- name: Check Operating System
-  fail:
-    msg="You're not running a supported operating system (CentOS or RHEL 7+)"
-  when: ((ansible_os_family != "RedHat") or (ansible_distribution_major_version|int < 7))
+#- name: Check Operating System
+  # fail:
+   # msg="You're not running a supported operating system (CentOS or RHEL 7+)"
+  #when: ((ansible_os_family != "RedHat") or (ansible_distribution_major_version|int < 7))
 
 - name: Import EPEL GPG Key
   rpm_key: key=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
