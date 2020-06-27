@@ -48,6 +48,13 @@ define service{
 define service{
     use                     generic-service
     hostgroup_name          servers
+    service_description     custom script to check memory
+    check_command           check_nrpe!usedspace_python
+    notifications_enabled   1
+}
+define service{
+    use                     generic-service
+    hostgroup_name          servers
     service_description     Zombie Processes
     check_command           check_nrpe!check_zombie_procs
     notifications_enabled   1

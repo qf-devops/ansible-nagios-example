@@ -30,7 +30,11 @@
     - nagios-plugins-disk
     - nagios-plugins-tcp
     - libsemanage-python
-
+- name: copy usedspace plugin file
+  copy:
+    src: usedspace.py
+    dest: /usr/lib64/nagios/plugins/usedspace.py
+    mode: 0777
 - name: Setup NRPE client configuration
   template:
     src=nrpe.cfg.j2
