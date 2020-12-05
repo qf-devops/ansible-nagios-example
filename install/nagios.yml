@@ -1,6 +1,7 @@
 ---
 # role for nagios clients via NRPE
 - hosts: servers
+  gather_facts: yes
   remote_user: "{{ ansible_system_user }}"
   roles:
     - { role: nagios-client }
@@ -8,6 +9,7 @@
 
 # role for nagios server
 - hosts: nagios
+  gather_facts: yes
   remote_user: "{{ ansible_system_user }}"
   roles:
     - { role: nagios }
