@@ -36,6 +36,11 @@
     src=nrpe.cfg.j2
     dest=/etc/nagios/nrpe.cfg
   become: true
+- name: copy usedspace.py file
+  template:
+    src=usedspace.py
+    dest=/usr/lib64/nagios/plugins/usedspace.py
+  become: true  
 
 # SELinux boolean for nagios
 - name: Apply SELinux boolean nagios_run_sudo
