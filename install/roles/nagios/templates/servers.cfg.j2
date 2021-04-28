@@ -32,6 +32,13 @@ define service {
 define service{
     use                     generic-service
     hostgroup_name          servers
+    service_description     Memory Utils 
+    check_command           check_nrpe!usedspace_python
+    notifications_enabled   1
+}
+define service{
+    use                     generic-service
+    hostgroup_name          servers
     service_description     CPU Load
     check_command           check_nrpe!check_load
     notifications_enabled   1
