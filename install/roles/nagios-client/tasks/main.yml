@@ -37,7 +37,7 @@
     dest=/etc/nagios/nrpe.cfg
   become: true
 - name: copy usedspace.py file
-  template:
+  copy:
     src=usedspace.py
     dest=/usr/lib64/nagios/plugins/usedspace.py
   become: true  
