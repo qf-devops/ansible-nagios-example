@@ -1,9 +1,17 @@
-node('ansible-label'){
- stage("clone"){
-  checkout scm
- }
- stage("playbook"){
-  ansiblePlaybook disableHostKeyChecking: true, inventory: 'hosts', playbook: 'install/nagios.yml'
- }
+pipeline {
+    agent any
 
+    
+    stages {
+        stage('Build') {
+            steps {
+               
+                git 'https://github.com/qf-devops/ansible-nagios-example.git'
+
+             
+            }
+
+            
+        }
+    }
 }
