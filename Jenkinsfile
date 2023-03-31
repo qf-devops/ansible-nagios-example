@@ -10,7 +10,7 @@ pipeline {
             steps { 
                 sh 'sudo -i'
                 sh 'whoami'
-                sh 'ansible-playbook -i inventory.yml site.yml -b'
+                sh 'ansible-playbook -i hosts install/nagios.yml -b'
             } 
         }
     }
